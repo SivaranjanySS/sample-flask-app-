@@ -6,10 +6,8 @@ app = FastAPI()
 @app.post("/webhook")
 async def github_webhook(request: Request):
 
-    data = await request.json()
-
     print("GitHub push detected")
 
-    os.system("python auto_deploy.py")
+    os.system("python3 auto_deploy.py")
 
-    return {"message": "Deployment triggered"}
+    return {"status": "Deployment Started"}

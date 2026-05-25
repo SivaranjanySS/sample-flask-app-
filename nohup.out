@@ -104,3 +104,427 @@ Step 12/17 : ENV PATH="$VIRTUAL_ENV/bin:$PATH"
  ---> Removed intermediate container 8cf1cc9093b1
  ---> 60feaf3facbd
 Step 13/17 : COPY . .
+ ---> 66d5e11a2989
+Step 14/17 : EXPOSE 5000
+ ---> Running in 3ce283474bb4
+ ---> Removed intermediate container 3ce283474bb4
+ ---> 8ab4907018e8
+Step 15/17 : RUN adduser --system --no-create-home appuser
+ ---> Running in e6e058972a6d
+Adding system user `appuser' (UID 101) ...
+Adding new user `appuser' (UID 101) with group `nogroup' ...
+Not creating home directory `/home/appuser'.
+ ---> Removed intermediate container e6e058972a6d
+ ---> 68a88449ddf6
+Step 16/17 : USER appuser
+ ---> Running in db4ea5c83336
+ ---> Removed intermediate container db4ea5c83336
+ ---> 88c1dd7a27d7
+Step 17/17 : CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+ ---> Running in 6c3b8da03db4
+ ---> Removed intermediate container 6c3b8da03db4
+ ---> 1e92685c26c5
+Successfully built 1e92685c26c5
+Successfully tagged sivaranjany/ai-deploy-app:v1
+The push refers to repository [docker.io/sivaranjany/ai-deploy-app]
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+824416e23423: Mounted from library/python
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+b2697057e25f: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Waiting
+6903bcecb972: Mounted from library/python
+b2697057e25f: Mounted from library/python
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+1a4ed6d9553a: Waiting
+8b91b88d5577: Mounted from library/python
+7f5060781f86: Waiting
+6e7d39ff1535: Waiting
+6e7d39ff1535: Mounted from library/python
+1a4ed6d9553a: Waiting
+7f5060781f86: Pushed
+c166077d50f5: Pushed
+cd2ea24fef09: Pushed
+1a4ed6d9553a: Pushed
+v1: digest: sha256:1e92685c26c5026dc61945dbd381efba2d319695c58197a7649db2332df7131f size: 2307
+5eb2151d67c4cb81dc2e679ce53ffb7c24a7dcbaa31f4fb0cd61864166678a78
+Starting AI deployment pipeline...
+Deployment completed successfully
+GitHub push detected
+INFO:     140.82.115.60:57048 - "POST /webhook HTTP/1.1" 200 OK
+python: can't open file '/home/ubuntu/sample-flask-app-/ai_generator.py': [Errno 2] No such file or directory
+5eb2151d67c4
+5eb2151d67c4
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  89.79MB
+Step 1/17 : FROM python:3.10-slim-buster AS builder
+ ---> 37aa274c2d00
+Step 2/17 : WORKDIR /app
+ ---> Using cache
+ ---> 4e492b6c32a0
+Step 3/17 : ENV VIRTUAL_ENV=/opt/venv
+ ---> Using cache
+ ---> 3428299a76a4
+Step 4/17 : RUN python -m venv $VIRTUAL_ENV
+ ---> Using cache
+ ---> b8cc9e63de5a
+Step 5/17 : ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ ---> Using cache
+ ---> f5782a12a79c
+Step 6/17 : COPY requirements.txt .
+ ---> Using cache
+ ---> 4f53ca978828
+Step 7/17 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> cadfe5dd6b54
+Step 8/17 : FROM python:3.10-slim-buster AS runner
+ ---> 37aa274c2d00
+Step 9/17 : WORKDIR /app
+ ---> Using cache
+ ---> 4e492b6c32a0
+Step 10/17 : ENV VIRTUAL_ENV=/opt/venv
+ ---> Using cache
+ ---> 3428299a76a4
+Step 11/17 : COPY --from=builder $VIRTUAL_ENV $VIRTUAL_ENV
+ ---> Using cache
+ ---> a19a009d2043
+Step 12/17 : ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ ---> Using cache
+ ---> 60feaf3facbd
+Step 13/17 : COPY . .
+ ---> af6db6087ab4
+Step 14/17 : EXPOSE 5000
+ ---> Running in 3e0e61805b24
+ ---> Removed intermediate container 3e0e61805b24
+ ---> cca34fd320dc
+Step 15/17 : RUN adduser --system --no-create-home appuser
+ ---> Running in 6dec7b6492de
+Adding system user `appuser' (UID 101) ...
+Adding new user `appuser' (UID 101) with group `nogroup' ...
+Not creating home directory `/home/appuser'.
+ ---> Removed intermediate container 6dec7b6492de
+ ---> 493a478c1a01
+Step 16/17 : USER appuser
+ ---> Running in 5d561a0a7492
+ ---> Removed intermediate container 5d561a0a7492
+ ---> c11236c9ffd6
+Step 17/17 : CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+ ---> Running in bc91a1703009
+ ---> Removed intermediate container bc91a1703009
+ ---> 69caebc035f9
+Successfully built 69caebc035f9
+Successfully tagged sivaranjany/ai-deploy-app:v1
+The push refers to repository [docker.io/sivaranjany/ai-deploy-app]
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+b2697057e25f: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Waiting
+cd2ea24fef09: Waiting
+b2697057e25f: Layer already exists
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+6e7d39ff1535: Layer already exists
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Waiting
+cd2ea24fef09: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+f259ebaabced: Waiting
+6903bcecb972: Waiting
+c166077d50f5: Layer already exists
+cd2ea24fef09: Layer already exists
+f259ebaabced: Waiting
+6903bcecb972: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Waiting
+824416e23423: Layer already exists
+f259ebaabced: Waiting
+6903bcecb972: Waiting
+3d6f293df3fc: Waiting
+8b91b88d5577: Layer already exists
+f259ebaabced: Waiting
+6903bcecb972: Layer already exists
+3d6f293df3fc: Waiting
+f259ebaabced: Waiting
+3d6f293df3fc: Waiting
+3d6f293df3fc: Pushed
+f259ebaabced: Pushed
+v1: digest: sha256:69caebc035f9bae4e9d3c88bfafc94723763ecedcef30776417129aceaeac8d5 size: 2307
+e538b2d524d9ad64855d54c98a75f5d7380337526767edcefbb9473470936e00
+Starting AI deployment pipeline...
+Deployment completed successfully
+GitHub push detected
+INFO:     140.82.115.251:62552 - "POST /webhook HTTP/1.1" 200 OK
+INFO:     Started server process [14368]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): [errno 98] address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     138.199.63.117:53186 - "GET / HTTP/1.1" 404 Not Found
+INFO:     138.199.63.117:53186 - "GET /favicon.ico HTTP/1.1" 404 Not Found
