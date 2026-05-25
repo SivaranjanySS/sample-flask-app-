@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "AI Powered CI/CD Deployment Working Successfully "
+    return "AI Powered CI/CD Deployment Successfully "
