@@ -1,12 +1,16 @@
 import os
 
-files = os.listdir()
+folders = ["flask-app", "node-app", "django-app"]
 
-if "requirements.txt" in files:
-    print("python")
+for folder in folders:
 
-elif "package.json" in files:
-    print("node")
+    files = os.listdir(folder)
 
-elif "pom.xml" in files:
-    print("java")
+    if "requirements.txt" in files:
+        print(f"{folder} -> flask")
+
+    elif "package.json" in files:
+        print(f"{folder} -> node")
+
+    elif "manage.py" in files:
+        print(f"{folder} -> django")

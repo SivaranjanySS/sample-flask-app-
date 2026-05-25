@@ -1382,3 +1382,268 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 INFO:     103.203.57.20:41102 - "GET / HTTP/1.1" 404 Not Found
+Traceback (most recent call last):
+  File "/home/ubuntu/sample-flask-app-/ai_generator.py", line 22, in <module>
+    response = client.models.generate_content(
+            model="gemini-2.5-flash",
+        contents=prompt
+    )
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/models.py", line 6495, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/models.py", line 4931, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/_api_client.py", line 1611, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/_api_client.py", line 1404, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 395, in __get_result
+    raise self._exception
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/_api_client.py", line 1381, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/sample-flask-app-/venv/lib/python3.14/site-packages/google/genai/errors.py", line 184, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+ai-container
+ai-container
+v1: Pulling from sivaranjany/ai-deploy-app
+Digest: sha256:dabeace729135a3f5ca9190cbb9016c58c5f2d6119dfe6ee552e69b626c6ba2f
+Status: Image is up to date for sivaranjany/ai-deploy-app:v1
+docker.io/sivaranjany/ai-deploy-app:v1
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  90.03MB
+Step 1/17 : FROM python:3.10-slim-buster AS builder
+ ---> 37aa274c2d00
+Step 2/17 : WORKDIR /app
+ ---> Using cache
+ ---> 4e492b6c32a0
+Step 3/17 : ENV VIRTUAL_ENV=/opt/venv
+ ---> Using cache
+ ---> 3428299a76a4
+Step 4/17 : RUN python -m venv $VIRTUAL_ENV
+ ---> Using cache
+ ---> b8cc9e63de5a
+Step 5/17 : ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ ---> Using cache
+ ---> f5782a12a79c
+Step 6/17 : COPY requirements.txt .
+ ---> Using cache
+ ---> 1dfce26ded3e
+Step 7/17 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> 25ace399a746
+Step 8/17 : FROM python:3.10-slim-buster AS runner
+ ---> 37aa274c2d00
+Step 9/17 : WORKDIR /app
+ ---> Using cache
+ ---> 4e492b6c32a0
+Step 10/17 : ENV VIRTUAL_ENV=/opt/venv
+ ---> Using cache
+ ---> 3428299a76a4
+Step 11/17 : COPY --from=builder $VIRTUAL_ENV $VIRTUAL_ENV
+ ---> Using cache
+ ---> 2a937abf17c4
+Step 12/17 : ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ ---> Using cache
+ ---> f4634eeed0c9
+Step 13/17 : COPY . .
+ ---> 4326a1a609de
+Step 14/17 : EXPOSE 5000
+ ---> Running in 8c42095531c7
+ ---> Removed intermediate container 8c42095531c7
+ ---> e977fef796a9
+Step 15/17 : RUN adduser --system --no-create-home appuser
+ ---> Running in b7e7bbe7fafd
+Adding system user `appuser' (UID 101) ...
+Adding new user `appuser' (UID 101) with group `nogroup' ...
+Not creating home directory `/home/appuser'.
+ ---> Removed intermediate container b7e7bbe7fafd
+ ---> b045c360cf23
+Step 16/17 : USER appuser
+ ---> Running in c86d2aaa977a
+ ---> Removed intermediate container c86d2aaa977a
+ ---> ff5ac54ffbf0
+Step 17/17 : CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+ ---> Running in 8507b838564a
+ ---> Removed intermediate container 8507b838564a
+ ---> 6a81d48f23fc
+Successfully built 6a81d48f23fc
+Successfully tagged sivaranjany/ai-deploy-app:v1
+The push refers to repository [docker.io/sivaranjany/ai-deploy-app]
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+b2697057e25f: Waiting
+6e7d39ff1535: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+c166077d50f5: Layer already exists
+b2697057e25f: Waiting
+6e7d39ff1535: Layer already exists
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+8b91b88d5577: Waiting
+b2697057e25f: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+621307691bca: Waiting
+824416e23423: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+b2697057e25f: Waiting
+b2697057e25f: Waiting
+621307691bca: Waiting
+824416e23423: Layer already exists
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+e21cd8b77055: Waiting
+6903bcecb972: Waiting
+09dfac3b3936: Waiting
+8b91b88d5577: Waiting
+b2697057e25f: Waiting
+621307691bca: Waiting
+b2697057e25f: Layer already exists
+621307691bca: Layer already exists
+e21cd8b77055: Waiting
+6903bcecb972: Layer already exists
+09dfac3b3936: Waiting
+8b91b88d5577: Layer already exists
+e21cd8b77055: Waiting
+e21cd8b77055: Waiting
+09dfac3b3936: Pushed
+e21cd8b77055: Pushed
+v1: digest: sha256:6a81d48f23fce117bbc0f3f8744f498a46fce0fe0b018285c36551d2922850c5 size: 2308
+ad3673e11f1106ea138ce22e350ae77fc96b8776dfc9a9cb63cac509c573d2c6
+Starting AI deployment pipeline...
+Deployment completed successfully
+GitHub push detected
+INFO:     140.82.115.32:39936 - "POST /webhook HTTP/1.1" 200 OK
