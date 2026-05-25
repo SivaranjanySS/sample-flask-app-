@@ -9,14 +9,19 @@ CONTAINER_NAME = "ai-container"
 
 print("Starting AI deployment pipeline...")
 
-# Generate Dockerfile
-os.system("python ai-generator.py")
+# Generate Dockerfile automatically
+os.system("python ai_generator.py")
 
-# Stop old containers
-os.system("docker stop $(docker ps -q)")
-os.system("docker rm $(docker ps -aq)")
+# Stop old container safely
+os.system(f"docker stop {CONTAINER_NAME} || true")
 
-# Build image
+# Remove old container safely
+os.system(f"docker rm {CONTAINER_NAME} || true")
+
+# Pull latest code image if exists
+os.system(f"docker pull {IMAGE_NAME} || true")
+
+# Build Docker image
 build = subprocess.run(
     f"docker build -t {IMAGE_NAME} .",
     shell=True
@@ -36,7 +41,7 @@ if push.returncode != 0:
     print("Docker push failed")
     exit()
 
-# Run container
+# Run new container
 run = subprocess.run(
     f"docker run -d -p 5000:5000 --name {CONTAINER_NAME} {IMAGE_NAME}",
     shell=True
