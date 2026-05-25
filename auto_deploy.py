@@ -10,7 +10,7 @@ CONTAINER_NAME = "ai-container"
 print("Starting AI deployment pipeline...")
 
 # Generate Dockerfile
-os.system("python ai_generator.py")
+os.system("python ai-generator.py")
 
 # Stop old containers
 os.system("docker stop $(docker ps -q)")
