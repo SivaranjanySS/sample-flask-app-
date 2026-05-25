@@ -1647,3 +1647,39 @@ Starting AI deployment pipeline...
 Deployment completed successfully
 GitHub push detected
 INFO:     140.82.115.32:39936 - "POST /webhook HTTP/1.1" 200 OK
+sh: 1: python: not found
+ai-container
+ai-container
+v1: Pulling from sivaranjany/ai-deploy-app
+Digest: sha256:6a81d48f23fce117bbc0f3f8744f498a46fce0fe0b018285c36551d2922850c5
+Status: Image is up to date for sivaranjany/ai-deploy-app:v1
+docker.io/sivaranjany/ai-deploy-app:v1
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /home/ubuntu/ai-deployment-platform/Dockerfile: no such file or directory
+Starting AI deployment pipeline...
+Docker build failed
+GitHub push detected
+INFO:     140.82.115.251:53986 - "POST /webhook HTTP/1.1" 200 OK
+sh: 1: python: not found
+Error response from daemon: No such container: ai-container
+Error response from daemon: No such container: ai-container
+v1: Pulling from sivaranjany/ai-deploy-app
+Digest: sha256:6a81d48f23fce117bbc0f3f8744f498a46fce0fe0b018285c36551d2922850c5
+Status: Image is up to date for sivaranjany/ai-deploy-app:v1
+docker.io/sivaranjany/ai-deploy-app:v1
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /home/ubuntu/ai-deployment-platform/Dockerfile: no such file or directory
+Starting AI deployment pipeline...
+Docker build failed
+GitHub push detected
+INFO:     140.82.115.156:59586 - "POST /webhook HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [16441]

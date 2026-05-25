@@ -23,7 +23,7 @@ os.system(f"docker pull {IMAGE_NAME} || true")
 
 # Build Docker image
 build = subprocess.run(
-    f"docker build -t {IMAGE_NAME} .",
+    f"docker build -t {IMAGE_NAME} ./flask-app",
     shell=True
 )
 
